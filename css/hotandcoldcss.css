@@ -1,0 +1,21 @@
+#output {
+  display: none;
+}
+.burning {
+  color: red;
+}
+.hot {
+  color: orange;
+}
+.warm {
+  color: brown;
+}
+.chilly {
+  color: green;
+}
+.cold {
+  color: aquamarine;
+}
+.freezing {
+  color: black;
+}
