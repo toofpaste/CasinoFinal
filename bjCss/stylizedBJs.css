@@ -1,0 +1,41 @@
+.user li {
+  list-style-type: none;
+  display: inline;
+}
+.deal li {
+  list-style-type: none;
+  display: inline;
+}
+#hit {
+  display: none;
+}
+#stay{
+  display: none;
+}
+#dealC{
+  display: none;
+}
+#imgButtons button {
+  display: none;
+}
+#imgButtons{
+  display: flex;
+}
+#imgButtons img{
+  background-color: transparent;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+img {
+  height: 200px;
+}
+
+#bustbust{
+  font-size: 25px;
+}
+#loser {
+  display: flex;
+  display: none;
+}
