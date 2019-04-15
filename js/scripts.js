@@ -1,24 +1,67 @@
 //Business Logic --------------------------------------------------------------
 
+// function secretNumber(levelInput){
+//   if (levelInput  === "easy") {
+//     secretNumber = Math.floor(Math.random() * 100);
+//     console.log("secretNumber", secretNumber);
+//   } else if (levelInput  === "medium") {
+//     secretNumber = Math.floor(Math.random() * 1000);
+//     console.log("secretNumber", secretNumber);
+//   } else if (levelInput === "hard") {
+//     secretNumber = Math.floor(Math.random() * 10000);
+//     console.log("secretNumber", secretNumber);
+//   }
+// };
+
 var secretNumber = Math.floor(Math.random() * 100);
 console.log("secretNumber", secretNumber);
 
 function compareNumbers(guessedNumber, secretNumber) {
   if(guessedNumber === secretNumber) {
-    $("#output").text("Congratulations, you've WON!")
+    $("#textOutput").text("Congratulations, you've WON!")
     console.log("compareNumbers function", "Congratulations, you've WON!")
   } else if (guessedNumber > secretNumber){
-    $("#output").text("Guess again, it's lower!");
+    $("#textOutput").text("Guess again, it's lower!");
     console.log("Guess again, it's lower!")
   } else if(guessedNumber < secretNumber) {
-    $("#output").text("Guess again, it's higher!");
+    $("#textOutput").text("Guess again, it's higher!");
     console.log("Guess again, it's higher");
   }
-};
+  var difference = Math.abs(guessedNumber - secretNumber);
+  console.log("difference", difference);
+  if(difference < 10) {
+    $("span").addClass("burning");
+    console.log("You are burning, so close");
+  } else if (difference < 50 && difference > 10) {
+    $("span").addClass("hot");
+    console.log("You're hot");
+  } else if (difference < 100 && difference > 50) {
+    $("span").addClass("warm");
+    console.log("Pretty warm");
+  } else if (difference < 250 && difference > 100) {
+    $("p").addClass("chilly");
+    console.log("You're getting chilly");
+  } else if (difference < 500 && difference > 250) {
+    $("span").addClass("cold");
+    console.log("You're so cold!");
+  } else if (difference < 1000 && difference > 500) {
+    $("span").addClass("freezing");
+    console.log("You're freezing!");
+  }
+// function howClose(guessedNumber, secretNumber) {
+//   var difference = (guessedNumber - secretNumber);
+//   console.log("difference", difference);
+}
 
 //User Interface Logic ---------------------------------------------------------
 
 $(document).ready(function() {
+  // $("#userInput").submit(function(event){
+  //   event.preventDefault();
+  //   var levelInput = $("input:radio[name=level]:checked").val();
+  //   console.log("levelInput", levelInput);
+  //   secretNumber(levelInput);
+  // });
   $("#userInput").submit(function(event) {
     event.preventDefault();
     var guessedNumber = parseInt($("#guessedNumber").val());
@@ -28,5 +71,5 @@ $(document).ready(function() {
     compareNumbers(guessedNumber, secretNumber);
     $("#output").show();
     $("#guessedNumber").val("");
- });
+  })
 });
