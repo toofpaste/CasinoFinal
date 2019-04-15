@@ -5,25 +5,16 @@ var secretNumber = Math.floor(Math.random() * 100);
 
 function compareNumbers(guessedNumber, secretNumber) {
   if(guessedNumber === secretNumber) {
-    console.log("compareNumbers function", "Congratulations, you've WON!")
+    $("#output").text("Congratulations, you've WON!")
+    //console.log("compareNumbers function", "Congratulations, you've WON!")
   } else if (guessedNumber > secretNumber){
-    console.log("Guess again, it's lower!")
+    $("#output").text("Guess again, it's lower!");
+    //console.log("Guess again, it's lower!")
   } else if(guessedNumber < secretNumber) {
-    console.log("Guess again, it's higher");
+    $("#output").text("Guess again, it's higher!");
+    //console.log("Guess again, it's higher");
   }
 };
-  // $("#output").text("Congratulations, you've WON!");
-
-  // || number2 >= 0) || (number1 >= 0 && number2 >= 0)) {
-
-
-  // $("#output").text("Please enter numbers greater than zero.");
-  // }	else {
-  // 	var total = 0;
-  // 	for(var index = 0; index <= number1; index += number2) {
-  // 	var result = $("#output").append(index + ", ");
-
-
 
 //User Interface Logic ---------------------------------------------------------
 
@@ -33,5 +24,6 @@ $(document).ready(function() {
     var guessedNumber = parseInt($("input#guessedNumber").val());
     console.log("guessedNumber", guessedNumber);
     compareNumbers(guessedNumber, secretNumber);
-  });
+    $("#output").show();
+ });
 });
