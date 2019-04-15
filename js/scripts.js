@@ -1,18 +1,5 @@
 //Business Logic --------------------------------------------------------------
 
-// function secretNumber(levelInput){
-//   if (levelInput  === "easy") {
-//     secretNumber = Math.floor(Math.random() * 100);
-//     console.log("secretNumber", secretNumber);
-//   } else if (levelInput  === "medium") {
-//     secretNumber = Math.floor(Math.random() * 1000);
-//     console.log("secretNumber", secretNumber);
-//   } else if (levelInput === "hard") {
-//     secretNumber = Math.floor(Math.random() * 10000);
-//     console.log("secretNumber", secretNumber);
-//   }
-// };
-
 var secretNumber = Math.floor(Math.random() * 100);
 console.log("secretNumber", secretNumber);
 
@@ -39,7 +26,7 @@ function compareNumbers(guessedNumber, secretNumber) {
     $("span").addClass("warm");
     console.log("Pretty warm");
   } else if (difference < 250 && difference > 100) {
-    $("p").addClass("chilly");
+    $("span").addClass("chilly");
     console.log("You're getting chilly");
   } else if (difference < 500 && difference > 250) {
     $("span").addClass("cold");
@@ -48,9 +35,6 @@ function compareNumbers(guessedNumber, secretNumber) {
     $("span").addClass("freezing");
     console.log("You're freezing!");
   }
-// function howClose(guessedNumber, secretNumber) {
-//   var difference = (guessedNumber - secretNumber);
-//   console.log("difference", difference);
 }
 
 //User Interface Logic ---------------------------------------------------------
