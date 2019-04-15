@@ -17,7 +17,16 @@
       <p>Site Intro</p>
     </div>
 <!-- This section is... -->
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <form id="userInput">
+      <div class="form-group">
+        <label for="user-input">Guess the number:</label>
+        <input id="guessedNumber" type="number" class="form-control" name="user-input" required/>
+        <!-- <input id="guessedNumber" type="number" class="form-control" name="user-input" min="1" max="3999"> -->
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-info">Guess!</button>
+      </div>
+    </form>
 <!-- As with the very first section, this section should generally not be edited. -->
   </div>
 </body>
