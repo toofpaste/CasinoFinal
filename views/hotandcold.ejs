@@ -1,0 +1,55 @@
+<!-- This section sets up our html code, links to stylesheets and scripts. Editing this section is generally not recommended. -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+  <script
+  src="https://code.jquery.com/jquery-3.4.0.js"
+  integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+  crossorigin="anonymous"></script>
+  <script src="scripts.js"></script>
+  <link rel="stylesheet" href="hotandcoldcss.css">
+  <title>Site Title</title>
+</head>
+<body>
+  <!-- This section is the header of the site. -->
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Hot and Cold</h1>
+      <p>A Simple Game From Your Childhood</p>
+    </div>
+    <!-- This section is... -->
+    <form id="userInput">
+      <!-- <div class="radio">
+        <h5>Choose difficulty level</h5>
+        <label>
+          <input type="radio" name="level" value="easy">Piece of Cake
+        </label>
+        <br>
+        <label>
+          <input type="radio" name="level" value="medium">Harder
+        </label>
+        <br>
+        <label>
+          <input type="radio" name="level" value="hard">Nightmare
+        </label>
+      </div> -->
+      <div class="form-group">
+        <!-- <label for="user-input">Enter an upper range number:</label>
+        <input id="rangeNumber" type="number" class="form-control" name="user-input"> -->
+        <label for="user-input">Guess the number:</label>
+        <input id="guessedNumber" type="number" class="form-control" name="user-input" required/>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-info">Guess!</button>
+      </div>
+    </form>
+    <div id="output">
+      <p><span id="textOutput"></span></p>
+    </div>
+    <!-- As with the very first section, this section should generally not be edited. -->
+  </div>
+</body>
+</html>
