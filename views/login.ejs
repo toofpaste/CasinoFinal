@@ -1,1 +1,35 @@
-login
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="jquery-3.3.1.js"></script>
+    <title>register</title>
+</head>
+
+<body>
+  
+<% include ./partials/header %>
+  
+
+    <div class="container container-form">
+            <h2 class="details-header">Fill in your personal information.</h2>
+            <form action="/login" method="POST" id="formOne">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="username">
+                      </div>
+                <div class="form-group col-md-6">
+                  <input type="password" id="password" class="form-control" name="password" placeholder="password">
+                </div>
+            </div>
+              <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+          </div>
+
+</body>
+
+</html>
