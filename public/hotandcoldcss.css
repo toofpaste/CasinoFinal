@@ -1,21 +1,107 @@
 #output {
   display: none;
+  text-align: center;
+  font-family: 'Fascinate Inline', cursive;
+  padding: 20px;
 }
-.burning {
-  color: red;
+
+.white {
+  color: white;
 }
-.hot {
-  color: orange;
+
+.success {
+  background-image: url(https://i.imgur.com/9VaUjkj.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
-.warm {
-  color: brown;
+
+.within5 {
+  background-image: url(https://i.imgur.com/bU9USjt.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
-.chilly {
-  color: green;
+
+.within10 {
+  background-image: url(http://gewoonschoon.info/wp-content/uploads/fire-torches-five-light-fire-torches-stone-wall-illustration-of-ancient.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
-.cold {
-  color: aquamarine;
+
+.within20 {
+  background-image: url(https://i.imgur.com/gDgBBBN.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
-.freezing {
-  color: black;
+
+.within30 {
+  background-image: url(http://deaddarlings.com/wp-content/uploads/2017/06/800px-Campfires_flames.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
+
+.within40 {
+  background-image: url(https://i.imgur.com/gJZnsno.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.within50 {
+  background-image: url(https://i.imgur.com/1THjrO3.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.within60 {
+  background-image: url(http://gewoonschoon.info/wp-content/uploads/fire-torches-five-light-fire-torches-stone-wall-illustration-of-ancient.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.within70 {
+  background-image: url(http://gewoonschoon.info/wp-content/uploads/fire-torches-five-light-fire-torches-stone-wall-illustration-of-ancient.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.within80 {
+  background-image: url(https://i.imgur.com/3guyKnJ.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.within90 {
+
+  background-image: url(https://media1.tenor.com/images/e54295364390057f7482f2966e2a4cd0/tenor.gif?itemid=5390133);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.tooFar {
+  background-image: url(http://pngimg.com/uploads/astronaut/astronaut_PNG13.png);
+  background-position: center;
+  background-size: auto;
+  background-attachment: fixed;
+}
+
+/* h3, h5 {
+  font-family: 'Fascinate Inline', cursive;
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 50px;
+  color: #aa9c19;
+  opacity: .9;
+} */
+
+/* border: 1px solid black; */
+/* background-color: grey; */

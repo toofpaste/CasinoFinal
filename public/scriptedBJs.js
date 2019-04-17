@@ -8,12 +8,16 @@ function randSuit(){
 
 function dealUser(value, suit, suitName, valueName){
   var imagePath = ["spade", "diam", "heart", "club"];
-    $("ul.user").append("<li><img src = 'img/" + imagePath[suit] + value + ".jpg'" + " of " + suitName[suit] + "</li>");
+  pl++;
+  $("ul.user").append("<li id = 'cardA" + pl + "'><img src = 'img/" + imagePath[suit] + value + ".jpg'" + " of " + suitName[suit] + "</li>");
+  $('#cardA' + pl).slideDown(1000);
 };
 function dealDeal(value, suit, suitName, valueName){
-  var totalDeal = 0;
+
   var imagePath = ["spade", "diam", "heart", "club"];
-  $("ul.deal").append("<li><img src = 'img/" + imagePath[suit] + value + ".jpg'" + " of " + suitName[suit] + "</li>");
+  dl++;
+  $("ul.deal").append("<li id = 'cardD" + dl + "'><img src = 'img/" + imagePath[suit] + value + ".jpg'" + " of " + suitName[suit] + "</li>");
+  $('#cardD' + dl).slideDown(1000);
 };
 function addCard(rngVal){
   if(rngVal <= 8){
@@ -175,7 +179,9 @@ $("#bankBal").text("Balance: $" + playerBank)
 $("#printBet").text("BET: $" + betTotal[0]);
 return playerBank;
 };
+  var dl = 0;
   var playerBank = 1000;
+  var pl = 0;
 $(function(){
   var countClick = 0;
 

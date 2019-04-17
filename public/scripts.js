@@ -1,43 +1,123 @@
 //Business Logic --------------------------------------------------------------
 
-var secretNumber = Math.floor(Math.random() * 100);
+var secretNumber = 100;
+// var secretNumber = Math.floor(Math.random() * 1000);
 console.log("secretNumber", secretNumber);
 
-function compareNumbers(guessedNumber, secretNumber) {
+function compareNumbers(guessedNumber, secretNumber, attempt) {
   if(guessedNumber === secretNumber) {
-    $("#textOutput").text("Congratulations, you've WON!")
-    console.log("compareNumbers function", "Congratulations, you've WON!")
+    $("#underOverOutput").text("Congratulations, you guessed the number!")
+    // console.log("compareNumbers function", "Congratulations, you've WON!")
   } else if (guessedNumber > secretNumber){
-    $("#textOutput").text("Guess again, it's lower!");
-    console.log("Guess again, it's lower!")
+    $("#underOverOutput").text("It's lower!");
+    // console.log("Guess again, it's lower!")
   } else if(guessedNumber < secretNumber) {
-    $("#textOutput").text("Guess again, it's higher!");
-    console.log("Guess again, it's higher");
+    $("#underOverOutput").text("It's higher!");
+    // console.log("Guess again, it's higher");
   }
-  var difference = Math.abs(guessedNumber - secretNumber);
+  var difference = Math.abs((guessedNumber/secretNumber));
   console.log("difference", difference);
-  if(difference < 10) {
-    $("span").addClass("burning");
-    console.log("You are burning, so close");
-  } else if (difference < 50 && difference > 10) {
-    $("span").addClass("hot");
-    console.log("You're hot");
-  } else if (difference < 100 && difference > 50) {
-    $("span").addClass("warm");
-    console.log("Pretty warm");
-  } else if (difference < 250 && difference > 100) {
-    $("span").addClass("chilly");
-    console.log("You're getting chilly");
-  } else if (difference < 500 && difference > 250) {
-    $("span").addClass("cold");
-    console.log("You're so cold!");
-  } else if (difference < 1000 && difference > 500) {
-    $("span").addClass("freezing");
-    console.log("You're freezing!");
+  if((guessedNumber === secretNumber)) {
+    $("body").removeClass();
+    $("#output").removeClass();
+    $("body").addClass("success");
+    $("#output").addClass("white");
+    $("#hotColdOutput").text("");
+    if(countGuess !== 1){
+    $("#attemptOutput").text("It took you " + attempt.attempts[attempt.attempts.length - 1].id + " attempts");
+  } else $("#attemptOutput").text("It took you 1 attempt");
+    // console.log("No text needed");
+  } else if(difference >= 0.95 && difference <= 1.05) {
+    $("body").removeClass();
+    $("#output").removeClass();
+    $("body").addClass("within5");
+    $("#hotColdOutput").text("You are within 5%");
+    // console.log("You are within 10");
+  } else if(difference >= 0.9 && difference <= 1.1) {
+    $("body").removeClass();
+    $("#output").removeClass();
+    $("body").addClass("within10");
+    $("#hotColdOutput").text("You are within 10%");
+    // console.log("You are within 10");
+  } else if (difference >= 0.8 && difference <= 1.2) {
+    $("body").removeClass();
+    $("#output").removeClass();
+    $("body").addClass("within20");
+    $("#hotColdOutput").text("You are within 20%");
+    // console.log("You are within 50");
+  } else if (difference >= 0.7 && difference <= 1.3) {
+    $("body").removeClass();
+    $("#output").removeClass();
+    $("body").addClass("within30");
+    $("#hotColdOutput").text("You are within 30%");
+    // console.log("You are within 50");within10
+  } else if (difference >= 0.6 && difference <= 1.4) {
+    $("body").removeClass();
+    $("#output").removeClass();
+    $("body").addClass("within40");
+    $("#hotColdOutput").text("You are within 40%");
+    // console.log("You are within 100");
+  } else if (difference >= 0.5 && difference <= 1.5) {
+    $("body").removeClass();
+    $("#output").removeClass();
+    $("body").addClass("within50");
+    $("#hotColdOutput").text("You are within 50%");
+    // console.log("You are within 250");
+  } else if (difference >= 0.4 && difference <= 1.6) {
+    $("body").removeClass();
+    $("#output").removeClass();
+    $("body").addClass("within60");
+    $("#hotColdOutput").text("You are within 60%");
+    // console.log("You're within 500");
+  } else if (difference >= 0.3 && difference <= 1.7) {
+    $("body").removeClass();
+    $("#output").removeClass();
+    $("body").addClass("within70");
+    $("#hotColdOutput").text("You are within 70%");
+    // console.log("You're not even within 500!");
+  } else if (difference >= 0.2 && difference <= 1.8) {
+    $("body").removeClass();
+    $("#output").removeClass();
+    $("body").addClass("within80");
+    $("#hotColdOutput").text("You are within 80%");
+    // console.log("You're not even within 500!");
+  } else if (difference >= 0.1 && difference <= 1.9) {
+    $("body").removeClass();
+    $("#output").removeClass();
+    $("body").addClass("within90");
+    $("#hotColdOutput").text("You are within 90%!");
+    console.log("You're not even within 500!");
+  } else {
+    $("body").removeClass();
+    $("#output").removeClass();
+    $("body").addClass("tooFar");
+    $("#hotColdOutput").text("You are too far away!");
   }
 }
 
+
+
+var countGuess = 0;
+function Attempts() {
+  this.attempts = [],
+  this.currentAttemptId = 1
+  countGuess++;
+  // console.log("Attempts", attempt);
+}
+
+Attempts.prototype.addAttempt = function(attempt) {
+  attempt.id = this.assignAttemptId();
+  this.attempts.push(attempt);
+}
+
+Attempts.prototype.assignAttemptId = function() {
+  this.currentAttemptId += 1;
+  return this.currentAttemptId;
+}
+
 //User Interface Logic ---------------------------------------------------------
+
+var attempt = new Attempts();
 
 $(document).ready(function() {
   // $("#userInput").submit(function(event){
@@ -52,7 +132,9 @@ $(document).ready(function() {
     console.log("guessedNumber", guessedNumber);
     // var rangeNumber = parseInt($("input#rangeNumber").val());
     // console.log("rangeNumber", rangeNumber);
-    compareNumbers(guessedNumber, secretNumber);
+    compareNumbers(guessedNumber, secretNumber, attempt);
+    var newAttempt = new Attempts(attempt);
+    attempt.addAttempt(newAttempt);
     $("#output").show();
     $("#guessedNumber").val("");
   })

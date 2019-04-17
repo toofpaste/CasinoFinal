@@ -10,8 +10,10 @@ var logger = require('morgan');
 var indexRoutes = require('./routes/index');
 var User = require('./models/user');
 var passport = require('passport');
-var LocalStrategy = require('passport-local');
+var LocalStrategy = require('passport-local').Strategy;
 var methodOverride = require('method-override');
+var flash = require('connect-flash');
+var session = require('express-session');
 
 
 //DataBase Logic
@@ -33,27 +35,36 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
 app.use(cookieParser());
+//flash
+
 
 //ROUTES
 app.use(indexRoutes);
 
-//passport Config
-app.use(require('express-session')({
-    secret:"Joe is the best",
+// passport Config
+app.use(require("express-session")({
+    secret: "Joe is the best",
     resave: false,
     saveUninitialized: false,
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// passport.use(new LocalStrategy(User.authenticate()));
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
+// app.use(function(req, res, next){
+//     res.locals.currentUser = req.user;
+//     next();
+// })
+app.use(flash());
 app.use(function(req, res, next){
-    res.locals.currentUser = req.user;
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_ms = req.flash('error_msg');
+    res.locals.error = req.flash('error');
     next();
-})
-
+});
 
 //SERVER
 app.listen(3000, function(){

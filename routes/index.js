@@ -16,6 +16,10 @@ router.get("/hotandcold", function(req, res){
     res.render("hotandcold");
 })
 
+router.get("/slots", function(req,res){
+    res.render("slots");
+})
+
 //Post route
 router.post("/", function(req,res){
     var name = req.body.name;
