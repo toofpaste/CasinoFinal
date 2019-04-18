@@ -4,7 +4,7 @@ function bet(){
   $("#printBet").text("NO BET");
   $("#plus1").click(function(){
     if(account.balance >= 1){
-    $("#spinButton").show();
+    $("#lever").show();
     num=1;
     betTotal+=1
     $("#printBet").text("BET: $" + betTotal);
@@ -14,7 +14,7 @@ function bet(){
 
   $("#plus5").click(function(){
     if(account.balance >= 5){
-    $("#spinButton").show();
+    $("#lever").fadeIn(500);
     num=5;
     betTotal+=5
     $("#printBet").text("BET: $" + betTotal);
@@ -24,7 +24,7 @@ function bet(){
 
   $("#plus10").click(function(){
     if(account.balance >= 10){
-    $("#spinButton").show();
+    $("#lever").fadeIn(500);
     num=10;
     betTotal+=10
     $("#printBet").text("BET: $" + betTotal);
@@ -34,7 +34,7 @@ function bet(){
 
   $("#plus50").click(function(){
     if(account.balance >= 50){
-    $("#spinButton").show();
+    $("#lever").fadeIn(500);
     num=50;
     betTotal+=50
     $("#printBet").text("BET: $" + betTotal);
@@ -44,7 +44,7 @@ function bet(){
 
   $("#plus100").click(function(){
     if(account.balance >= 100){
-    $("#spinButton").show();
+    $("#lever").fadeIn(500);
     num=100;
     betTotal+=100
     $("#printBet").text("BET: $" + betTotal);
@@ -73,54 +73,54 @@ function spin(){
   (function theLoop (i) {
     setTimeout(function () {
       var random = Math.floor(Math.random() * 4) + 1;
-      time += 20;
+      time += 40;
       print(random);
       if (--i) {          // If i > 0, keep going
         theLoop(i);       // Call the loop again, and pass it the current value of i
       }
     }, time);
-  })(30);
+  })(10);
   var timeA = 100;
   (function theLoop (i) {
     setTimeout(function () {
       var random = Math.floor(Math.random() * 4) + 1;
-      timeA += 15;
+      timeA += 35;
       printA(random);
       if (--i) {          // If i > 0, keep going
         theLoop(i);       // Call the loop again, and pass it the current value of i
       }
     }, timeA);
-  })(35);
+  })(15);
   var timeB = 100;
   (function theLoop (i) {
     setTimeout(function () {
       var random = Math.floor(Math.random() * 4) + 1;
-      timeB += 10;
+      timeB += 30;
       printB(random);
       if (--i) {          // If i > 0, keep going
         theLoop(i);       // Call the loop again, and pass it the current value of i
       }
     }, timeB);
-  })(43);
+  })(20);
 
 };
 
 function freeze(){
   var col1 = Math.floor(Math.random() * 4) + 1;
   $("ul#list0").html("<li><img  src = 'Slotimg/"+ (col1) + ".png' alt = ''></li>");
-  $("ul#list0").fadeIn(1000);
+  $("ul#list0").fadeIn(500);
   return col1;
 };
 function freezeA(){
   var col2 = Math.floor(Math.random() * 4) + 1;
   $("ul#alist0").html("<li><img src = 'Slotimg/"+ (col2) + ".png' alt = ''></li>");
-  $("ul#alist0").fadeIn(1000);
+  $("ul#alist0").fadeIn(500);
   return col2;
 };
 function freezeB(){
   var col3 = Math.floor(Math.random() * 4) + 1;
   $("ul#blist0").html("<li><img src = 'Slotimg/"+ (col3) + ".png' alt = ''></li>");
-  $("ul#blist0").fadeIn(1000);
+  $("ul#blist0").fadeIn(500);
   return col3;
 };
 
@@ -129,19 +129,26 @@ function checkWin(col1, col2, col3, betAmount){
   if (col1 === 1 && col2 === 1 && col3 === 1){
     $("#headline").text("JACKPOT JACKPOT JACKPOT: $" + (betAmount * 250));
     account.balance += betAmount + (betAmount*250);
+    localStorage.setItem("bank", account.balance);
   }else if(col1 === col2 && col2 === col3 && col1 === col3){
     $("#headline").text("YOU WIN: $" + (betAmount * 25));
     account.balance += betAmount + (betAmount*25);
-  }else $("#headline").text("LOSER LOSER LOSER");
+    localStorage.setItem("bank", account.balance);
+  }else{
+    $("#headline").text("LOSER LOSER LOSER");
+    if(account.balance <= 0){
+      $("#resetBank").fadeIn(1000);
+    };
+  }
 };
 var col1 = 0;
 var col2 = 1;
 var col3 = 2;
 function endCheck(){
 
-  var time0 = 12300;
-  var timeA = 12950;
-  var timeB = 13860;
+  var time0 = 3300;
+  var timeA = 5800;
+  var timeB = 8400;
 
 
     setTimeout(function(){
@@ -161,8 +168,9 @@ function endCheck(){
 
 function takeMoney(betAmount, betTotal){
   account.balance -= betAmount;
+  localStorage.setItem("bank", account.balance);
   $("#bal").text("BALANCE: $" + account.balance);
-$("#spinButton").click(function() {
+$("#lever").click(function() {
   setTimeout(function(){
     $("#plus1").fadeIn(1000);
     $("#plus5").fadeIn(1000);
@@ -171,33 +179,59 @@ $("#spinButton").click(function() {
     $("#plus100").fadeIn(1000);
     checkWin(col1, col2, col3, betTotal);
 
-  }, 15000)
+  }, 10400)
 });
 }
 
 var account = {
-  balance: 1000
+  balance: localStorage.getItem("bank")
 };
 
 $(function() {
+  // var foo = localStorage.getItem("bank");
+  // console.log(foo);
+  if(account.balance <= 0){
+    $("#resetBank").fadeIn(1000);
+  };
+  $("#resetBank").click(function(){
+      localStorage.setItem("bank", 1000);
+  });
+  $("#btnCash").click(function(){
+      localStorage.setItem("bank", account.balance);
+  });
+  $("#lever").hide();
   $("#bal").text("BALANCE: $" + account.balance);
+  $("ul#list0").html("<li><img src = 'Slotimg/"+ (1) + ".png' alt = ''></li>");
+  $("ul#alist0").html("<li><img src = 'Slotimg/"+ (1) + ".png' alt = ''></li>");
+  $("ul#blist0").html("<li><img src = 'Slotimg/"+ (1) + ".png' alt = ''></li>");
   bet();
-  $("#spinButton").click(function() {
-    $("button").hide();
+  var trigger = document.getElementById('trigger');
+  var lever = document.getElementById('lever');
+  var isOn = true;
+  trigger.addEventListener('click', function(event) {
+
+    // $("ul").empty();
+    // event.preventDefault();
+    lever.className = 'lever active ' + (isOn ? 'off' : 'on');
+    setTimeout(function(){
+      lever.className = 'lever ' + ('on');
+      spin();
+    }, 900)
+    setTimeout(function(){
     $("ul#list0").hide();
     $("ul#alist0").hide();
     $("ul#blist0").hide();
     $("#headline").empty();
-    // $("ul").empty();
-    spin();
+    $("#lever").fadeOut(1000);
+
     endCheck();
+  }, 1500);
     setTimeout(function(){
       bet = 0;
       betTotal = 0;
-    }, 10000)
-
-
-
+    }, 9001);
 
   });
+
+
 });

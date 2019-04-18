@@ -1,44 +1,102 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="Slotstyles.css" type="text/css" media = "all">
-  <script src="Slotscripts.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline" rel="stylesheet">
-    <title>Slot Machine</title>
-  </head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="Slotstyles.css" type="text/css" media = "all">
+      <script src="Slotscripts.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+        <title>Slot Machine</title>
+      </head>
   <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <br><br><br><br><br><br><br><br><br><br>
-            <div class="logo"><b><span>SLOTS! </span></b></div>
-</div>
-            <br><br><br><br><br>
+
+      <!-- <% include ./partials/header %> -->
+    
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="/">Casino</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+
+                  <% if(!currentUser){ %>
+                  <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %> nav-item"><a
+                      class="nav-link" href="/login">Login</a></li>
+                  <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %> nav-item"><a
+                          class="nav-link" href="/register">Sign
+                          Up</a></li>
+                  <% } else { %>
+                  <li class="nav-item"><a class="nav-link"href="#">Signed In As
+                          <%= currentUser.username %></a></li>
+                  <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                  <% } %>
+
+                  <li class="nav-item">
+                      <a class="nav-link" href="/blackjack">Black Jack</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/hotandcold">Hot and Cold</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/slots">Slots</a>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+
+      <div class="container">
+          <% if(error && error.length > 0){ %>
+          <div class="alert alert-danger" role="alert">
+              <%= error %>
+          </div>
+          <% } %>
+          <% if(success && success.length > 0){ %>
+          <div class="alert alert-success" role="alert">
+              <%= success %>
+          </div>
+          <% } %>
+      </div>
+      <div class="container">
+
+        <button class="btn btn-default"><a href="blackjack.html" class="btnCash">Cash Out & Go to Blackjack</a></button>
+        <button class="btn btn-default" id = "resetBank" onClick="window.location.reload()">Set Bank Back to $1000</button>
+      <div  class = "jumbotron">
+          <div class="logo"><b><span id = "fontSize">SLOTS! </span></b></div>
+            <br>
             <h1 id = "headline"></h1>
             <h1 id = "bal"></h1>
-
         </div>
-      </div>
-    </nav>
+
     <ul class="strand">
-    	<!-- <li> tags create the individual christmas lights. we're going to have 43 -->
+
     	<li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
       <li></li>
       <li></li>
       <li></li>
@@ -67,7 +125,7 @@
 
     <div class="container text-center">
      <br>
-      <div class="row">
+      <div class="row" id = "spaceHold">
         <div class="col-sm-4">
           <ul id = "list0" style="list-style-type:none;">
           </ul>
@@ -82,12 +140,59 @@
         </div>
       </div>
     </div><br>
+    <ul class="strand">
 
-    <footer class="container-fluid text-center" id = "buttonSpin">
-      <p><button type="button" name="button" class = "btn btn-success" id = "spinButton">SPIN TO WIN</button></p>
+    	<li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+
+    </ul>
+    <div class="container-fluid text-center" id = "buttonSpin">
+      <div class="lever on" id="lever">
+       <div class="track">
+           <div class="stick"></div>
+           <div class="ball">
+             <div class="ripple" id="ripple"></div>
+             <button type="button" name="button" id = "trigger" id="spinButton"></button>
+           </div>
+         </div>
+       </div>
+      <!-- <p><button type="button" name="button" class = "btn btn-success" id = "spinButton">SPIN TO WIN</button></p> -->
 
 
-    </footer>
+    </div>
     <div class="container">
 
       <h4><span id ="printBet"></span></h4>

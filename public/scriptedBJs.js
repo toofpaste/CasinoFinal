@@ -6,18 +6,37 @@ function randSuit(){
 };
 
 
-function dealUser(value, suit, suitName, valueName){
+function dealUser(value, suit, suitName, valueName, totalUser){
   var imagePath = ["spade", "diam", "heart", "club"];
+  for(var tp = 0; tp < userTrack.length; tp++){
+    if(userTrack[tp] === 12 && totalUser > 21){
+      userTrack[tp] = 1;
+      totalUser -= 10;
+      $("#userVal").text("Value of: " + totalUser);
+    };
+  };
   pl++;
+  userTrack.push(value);
   $("ul.user").append("<li id = 'cardA" + pl + "'><img src = 'img/" + imagePath[suit] + value + ".jpg'" + " of " + suitName[suit] + "</li>");
-  $('#cardA' + pl).slideDown(1000);
+  $("#userVal").text("Value of: " + totalUser);
+  $('#cardA' + pl).slideDown(500);
 };
-function dealDeal(value, suit, suitName, valueName){
+
+function dealDeal(value, suit, suitName, valueName, totalDeal){
 
   var imagePath = ["spade", "diam", "heart", "club"];
+  for(var tp = 0; tp < dealTrack.length; tp++){
+    if(dealTrack[tp] === 12 && totalDeal > 21){
+      dealTrack[tp] = 1;
+      totalDeal -= 10;
+      $("#dealVal").text("Value of: " + totalDeal);
+    };
+  };
   dl++;
+  dealTrack.push(value);
   $("ul.deal").append("<li id = 'cardD" + dl + "'><img src = 'img/" + imagePath[suit] + value + ".jpg'" + " of " + suitName[suit] + "</li>");
-  $('#cardD' + dl).slideDown(1000);
+  $("#dealVal").text("Value of: " + totalDeal);
+  $('#cardD' + dl).slideDown(500);
 };
 function addCard(rngVal){
   if(rngVal <= 8){
@@ -30,44 +49,62 @@ function addCard(rngVal){
 };
 
 function checkWin(totalUser, totalDeal, betTotal){
-  $("#reset1").show();
+  $("#reset1").fadeIn(500);
   if (totalUser >= 22){
     $("#bankBal").text("Balance: $" + playerBank)
      $('#name').text("   User: " + totalUser + "    BUST - - - - Dealer Wins");
-     $('#bet').text("Bet Amount: $" + betTotal + " Loss Amount: $" + (betTotal));
+     $('#bet').text("Bet Amount: $" + betTotal);
+     $('#bet2').text(" Loss Amount: $" + (betTotal));
      $("#bank").text("Bank Balance: $" + playerBank);
+     localStorage.setItem("bank", playerBank);
+     if(playerBank <= 0){
+       $("#resetBank").fadeIn(500);
+     };
    };
    if (totalUser === totalDeal){
      playerBank += betTotal[0];
      $("#bankBal").text("Balance: $" + playerBank)
      $('#name').text("Dealer: " + totalDeal + "  /User: " + totalUser + "    TIE TIE TIE TIE TIE");
-     $('#bet').text("Bet Amount: $" + betTotal + " Win Amount: $" + (betTotal));
+     $('#bet').text("Bet Amount: $" + betTotal);
+     $('#bet2').text(" Win Amount: $" + (betTotal));
      $("#bank").text("Bank Balance: $" + playerBank);
+     localStorage.setItem("bank", playerBank);
    };
    if (totalUser > totalDeal && totalUser <= 21){
 
      playerBank += (betTotal[0]*2);
      $("#bankBal").text("Balance: $" + playerBank)
     $('#name').text("Dealer: " + totalDeal + "   /User: " + totalUser + "    USER WINS")
-    $('#bet').text("Bet Amount: $" + betTotal + " Win Amount: $" + (betTotal * 2));
-    $("#bank").text("Bank Balance: $" + playerBank); ;
+    $('#bet').text("Bet Amount: $" + betTotal);
+    $('#bet2').text(" Win Amount: $" + (betTotal * 2));
+    $("#bank").text("Bank Balance: $" + playerBank);
+    localStorage.setItem("bank", playerBank);
    };
    if (totalDeal > totalUser && totalDeal <= 21){
      $("#bankBal").text("Balance: $" + playerBank)
     $('#name').text("Dealer: " + totalDeal + "   /User: " + totalUser + "    DEALER WINS HAHAHA");
-    $('#bet').text("Bet Amount: $" + betTotal + " Loss Amount: $" + (betTotal));
+    $('#bet').text("Bet Amount: $" + betTotal);
+    $('#bet2').text(" Loss Amount: $" + (betTotal));
     $("#bank").text("Bank Balance: $" + playerBank);
+    localStorage.setItem("bank", playerBank);
+    if(playerBank <= 0){
+      $("#resetBank").fadeIn(500);
+    };
    };
    if(totalDeal > 21 && totalUser <= 21){
      playerBank += (betTotal[0]*2);
      $("#bankBal").text("Balance: $" + playerBank)
      $('#name').text("Dealer: " + totalDeal + "   /User: " + totalUser + "    USER WINS:  DEALER BUST");
-     $('#bet').text("Bet Amount: $" + betTotal + " Win Amount: $" + (betTotal * 2));
+     $('#bet').text("Bet Amount: $" + betTotal);
+     $('#bet2').text(" Win Amount: $" + (betTotal * 2));
      $("#bank").text("Bank Balance: $" + playerBank);
+     localStorage.setItem("bank", playerBank);
    };
 };
 function start(){
-  $("#reset1").hide();
+  userTrack = [];
+  dealTrack = [];
+  $("#reset1").fadeOut(500);
   var suitName = ["Spades" , "Hearts", "Diamonds", "Clubs"];
   var valueName = [2, 3, 4, 5, 6, 7 ,8 ,9, 10, "Jack", "Queen", "King", "Ace"];
   //               0  1  2  3  4  5  6  7  8     9        10      11      12
@@ -79,7 +116,7 @@ function start(){
   var betTotal = [];
 
   $("#plus1").unbind("click").click(function(){
-    $("button#dealC").show();
+    $("button#dealC").fadeIn(500);
     if(playerBank > 0){
     var clickedNum = 1;
     playerBank = bet(clickedNum, betTotal);
@@ -88,7 +125,7 @@ function start(){
 
 
   $("#plus5").unbind("click").click(function(){
-    $("button#dealC").show();
+    $("button#dealC").fadeIn(500);
     if(playerBank >= 5){
     var clickedNum = 5;
     playerBank = bet(clickedNum, betTotal);
@@ -98,7 +135,7 @@ function start(){
 
 
   $("#plus10").unbind("click").click(function(){
-    $("button#dealC").show();
+    $("button#dealC").fadeIn(500);
     if(playerBank >= 10){
     var clickedNum = 10;
     playerBank = bet(clickedNum, betTotal);
@@ -108,7 +145,7 @@ function start(){
 
 
   $("#plus50").unbind("click").click(function(){
-    $("button#dealC").show();
+    $("button#dealC").fadeIn(500);
     if(playerBank >= 50){
     var clickedNum = 50;
     playerBank = bet(clickedNum, betTotal);
@@ -118,7 +155,7 @@ function start(){
 
 
   $("#plus100").unbind("click").click(function(){
-    $("button#dealC").show();
+    $("button#dealC").fadeIn(500);
     if(playerBank >= 100){
     var clickedNum = 100;
     playerBank = bet(clickedNum, betTotal);
@@ -127,46 +164,127 @@ function start(){
 
 
   $("button#dealC").unbind("click").click(function(){
-    $("#plus1").hide();
-    $("#plus5").hide();
-    $("#plus10").hide();
-    $("#plus50").hide();
-    $("#plus100").hide();
-    $("button#dealC").hide();
-    $("button#hit").show();
-    $("button#stay").show();
+    $("#plus1").fadeOut(500);
+    $("#plus5").fadeOut(500);
+    $("#plus10").fadeOut(500);
+    $("#plus50").fadeOut(500);
+    $("#plus100").fadeOut(500);
+    $("button#dealC").fadeOut(500);
+    $("button#hit").fadeIn(500);
+    $("button#stay").fadeIn(500);
+    if(playerBank > 0 && playerBank >= (betTotal * 2)){
+    $("button#dblDown").fadeIn(500);
+  };
+    var userAce = 0;
+    var dealAce = 0;
       rngVal = randVal();
       totalUser += addCard(rngVal);
       rngSuit = randSuit();
-      dealUser(rngVal, rngSuit, suitName, valueName);
+      dealUser(rngVal, rngSuit, suitName, valueName, totalUser);
       rngVal = randVal();
       totalUser += addCard(rngVal);
       rngSuit = randSuit();
-      dealUser(rngVal, rngSuit, suitName, valueName);
+      dealUser(rngVal, rngSuit, suitName, valueName, totalUser);
       rngVal = randVal();
       totalDeal += addCard(rngVal);
       rngSuit = randSuit();
-      dealDeal(rngVal, rngSuit, suitName, valueName);
+      dealDeal(rngVal, rngSuit, suitName, valueName, totalDeal);
     });
     $("button#hit").unbind("click").click(function(){
-      if(totalUser <= 21){
+      $("#dblDown").fadeOut(100);
+      for(var tp = 0; tp < userTrack.length; tp++){
+        if(userTrack[tp] === 12 && totalUser > 21){
+          userAce++;
+        };
+      };
+      if(totalUser <= 21 || userAce > 0){
+      userAce = 0;
       rngVal = randVal();
       totalUser += addCard(rngVal);
+      for(var tp = 0; tp < userTrack.length; tp++){
+        if(userTrack[tp] === 12 && totalUser > 21){
+          userTrack[tp] = 1;
+          totalUser -= 10;
+        };
+      };
+      for(var tp = 0; tp < dealTrack.length; tp++){
+        if(dealTrack[tp] === 12 && totalDeal > 21){
+          dealTrack[tp] = 1;
+          totalDeal -= 10;
+        };
+      };
       rngSuit = randSuit();
-      dealUser(rngVal, rngSuit, suitName, valueName);
-    }else $("ul.user").append("<li id = 'bustbust'> BUST BUST BUST BUST </li>");;
+      dealUser(rngVal, rngSuit, suitName, valueName, totalUser);
+    }else $("ul.user").append("<li id = 'bustbust'> BUST BUST BUST BUST </li>");
     });
     $("button#stay").unbind("click").click(function(){
-      $("#stay").hide();
-      $("#hit").hide();
+      for(var tp = 0; tp < userTrack.length; tp++){
+        if(userTrack[tp] === 12 && totalUser > 21){
+          dealAce++;
+        };
+      };
+      $("#dblDown").fadeOut(100);
+      $("#stay").fadeOut(500);
+      $("#hit").fadeOut(500);
     while(totalDeal <= 16){
       rngVal = randVal();
       totalDeal += addCard(rngVal);
+      for(var tp = 0; tp < userTrack.length; tp++){
+        if(userTrack[tp] === 12 && totalUser > 21){
+          userTrack[tp] = 1;
+          totalUser -= 10;
+        };
+      };
+      for(var tp = 0; tp < dealTrack.length; tp++){
+        if(dealTrack[tp] === 12 && totalDeal > 21){
+          dealTrack[tp] = 1;
+          totalDeal -= 10;
+        };
+      };
+
       rngSuit = randSuit();
-      dealDeal(rngVal, rngSuit, suitName, valueName);
+      dealDeal(rngVal, rngSuit, suitName, valueName, totalDeal);
     };
     checkWin(totalUser, totalDeal, betTotal);
     });
+    $("button#dblDown").unbind("click").click(function(){
+      $("#dblDown").fadeOut(500);
+      $("#stay").fadeOut(500);
+      $("#hit").fadeOut(500);
+      var dblDbl = betTotal[0];
+      playerBank = bet(dblDbl, betTotal);
+      rngVal = randVal();
+
+      totalUser += addCard(rngVal);
+      for(var tp = 0; tp < userTrack.length; tp++){
+        if(userTrack[tp] === 12 && totalUser > 21){
+          userTrack[tp] = 1;
+          totalUser -= 10;
+        };
+      };
+      for(var tp = 0; tp < dealTrack.length; tp++){
+        if(dealTrack[tp] === 12 && totalDeal > 21){
+          dealTrack[tp] = 1;
+          totalDeal -= 10;
+        };
+      };
+      // for(var tp = 0; tp < userTrack.length; tp++){
+      //   if(userTrack[tp] === 12 && totalUser > 21){
+      //     totalUser -= 10;
+      //     $("#userVal").text("Value of: " + totalUser);
+      //   };
+      // };
+      rngSuit = randSuit();
+      dealUser(rngVal, rngSuit, suitName, valueName, totalUser);
+      while(totalDeal <= 16){
+        rngVal = randVal();
+        totalDeal += addCard(rngVal);
+        rngSuit = randSuit();
+        dealDeal(rngVal, rngSuit, suitName, valueName, totalDeal);
+      };
+      checkWin(totalUser, totalDeal, betTotal);
+    });
+
 };
 
 function bet(clickedNum, betTotal){
@@ -180,30 +298,50 @@ $("#printBet").text("BET: $" + betTotal[0]);
 return playerBank;
 };
   var dl = 0;
-  var playerBank = 1000;
+  var playerBank = localStorage.getItem("bank");
   var pl = 0;
+  var userTrack = [];
+  var dealTrack = [];
 $(function(){
+  if(playerBank <= 0){
+    $("#resetBank").fadeIn(500);
+  };
+  $("#resetBank").click(function(){
+      localStorage.setItem("bank", 1000);
+  });
   var countClick = 0;
+  $("#imgButtons").hide();
+  $("#bankBal").text("Balance: $" + playerBank)
+
 
       $("#reset1").unbind("click").click(function(){
-        if(playerBank != 0){
-        $("#imgButtons").show();
-        $("#plus1").show();
-        $("#plus5").show();
-        $("#plus10").show();
-        $("#plus50").show();
-        $("#plus100").show();
+        if(playerBank > 0){
+        $("#imgButtons").fadeIn(500);
+        $("#plus1").fadeIn(500);
+        $("#plus5").fadeIn(500);
+        $("#plus10").fadeIn(500);
+        $("#plus50").fadeIn(500);
+        $("#plus100").fadeIn(500);
         $("ul").empty();
         $("ul").empty();
         $("#bet").empty();
+        $("#bet2").empty();
         $("#name").empty();
         $("#bank").empty();
-        $("#hit").hide();
-        $("#stay").hide();
+        $("#hit").fadeOut(500);
+        $("#stay").fadeOut(500);
+        $("#dblDown").fadeOut(500);
         $("#printBet").empty();
+        $("#userVal").empty();
+        $("#dealVal").empty();
         start();
-      }else {$("#loselose").hide();
-              $("#loser").show();}
+        $("#btnCash").click(function(){
+            localStorage.setItem("bank", playerBank);
+        });
+      }else {
+        alert("Please Reset Bank Balance");
+
+      }
       });
 
 

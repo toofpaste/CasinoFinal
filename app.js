@@ -69,6 +69,6 @@ app.use(userRoutes);
 
 
 //SERVER
-app.listen(3000, function(){
-    console.log("Server has Started");
+app.listen(process.env.PORT || 5000, function () {
+    console.log("Yelp Camp server has Started");
 })

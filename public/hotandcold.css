@@ -1,0 +1,136 @@
+#compareNumbers {
+  display: none;
+}
+
+#output {
+  display: none;
+  text-align: center;
+  padding: 50px;
+}
+
+#guessedNumberArea {
+  /* margin-left: 100px;
+  margin-right: 425px; */
+}
+
+#computerOutputArea {
+  margin-right: 100px;
+  margin-left: 150px;
+}
+
+.card-body {
+  display: block;
+  text-align: center;
+}
+
+.white {
+  color: white;
+}
+
+.success {
+  background-image: url("https://i.imgur.com/9VaUjkj.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.within5 {
+  background-image: url("https://i.imgur.com/bU9USjt.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.within10 {
+  background-image: url("https://i.imgur.com/gqG0mZa.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.within20 {
+  background-image: url("https://i.imgur.com/bW05cN5.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.within30 {
+  background-image: url("https://i.imgur.com/tlKEL1n.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.within40 {
+  background-image: url("https://i.imgur.com/hAZcuDu.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.within50 {
+  background-image: url("https://i.imgur.com/jSodZ7c.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.within60 {
+  background-image: url("https://i.imgur.com/sNRBq9L.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.within70 {
+  background-image: url("https://i.imgur.com/nLgamkh.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.within80 {
+  background-image: url("https://i.imgur.com/EuR16NL.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.within90 {
+  background-image: url("https://i.imgur.com/D1tX9vj.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.tooFar {
+  background-image: url("https://i.imgur.com/iWDAFFr.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+em {
+  color: white;
+}
+
+.jumbotron {
+  background-color: transparent;
+  display: block;
+  text-align: center;
+  color: white;
+}
+
+body {
+  background-image: url("https://i.imgur.com/9VaUjkj.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+}
+
+img {
+  height: 800px;
+  width: 600px;
+}

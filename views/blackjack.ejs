@@ -1,99 +1,85 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-      <link href="bootstrap.css" rel="stylesheet" type="text/css">
-      <script src="jquery-3.3.1.js"></script>
-    <link rel="stylesheet" href="stylizedBJs.css" type="text/css">
-    <script src="scriptedBJs.js"></script>
-    <meta charset="utf-8">
-    <title>Cards</title>
-  </head>
+    <head>
+        <link href="bootstrap.css" rel="stylesheet" type="text/css">
+        <script src="jquery-3.3.1.js"></script>
+      <link rel="stylesheet" href="stylizedBJs.css" type="text/css">
+      <script src="scriptedBJs.js"></script>
+      <meta charset="utf-8">
+      <title>Cards</title>
+    </head>
   <body>
 
       <% include ./partials/header %>
+      <button class="btn btn-default"><a href="slots.html" class="btnCash">Cash Out & Go to Slots</a></button>
+        <button class="btn btn-default" id = "resetBank" onClick="window.location.reload()">Set Bank Back to $1000</button>
+    <div  class = "jumbotron">
+        <div class="logo"><b><span id = "fontSize">Black Jack</span></b></div>
+          <br>
+          <h3 id = "bankBal"></h3>
+          <h3 id ="printBet"></h3>
+      </div>
 
 
-    <div id="loser">
 
-
-    <img src="https://media.giphy.com/media/3o7TKnrXco2SC0XM1q/giphy.gif" alt="">
-    <img src="https://media0.giphy.com/media/gFjbkip9OIIuI/giphy.gif" alt="">
-    <img src="https://media1.tenor.com/images/38b0de90f5f31fc6fc83e97adc83267d/tenor.gif?itemid=4488258" alt="">
-    <img src="https://www.gamedevmarket.net/file/478ba0a78e9388eff11cc7f599dbad16.gif" alt="">
-    <img src="https://media.giphy.com/media/3o7TKnrXco2SC0XM1q/giphy.gif" alt="">
-    <img src="https://media0.giphy.com/media/gFjbkip9OIIuI/giphy.gif" alt="">
-    <img src="https://media1.tenor.com/images/38b0de90f5f31fc6fc83e97adc83267d/tenor.gif?itemid=4488258" alt="">
-    <img src="https://www.gamedevmarket.net/file/478ba0a78e9388eff11cc7f599dbad16.gif" alt="">
-    <img src="https://media.giphy.com/media/3o7TKnrXco2SC0XM1q/giphy.gif" alt="">
-    <img src="https://media0.giphy.com/media/gFjbkip9OIIuI/giphy.gif" alt="">
-    <img src="https://media1.tenor.com/images/38b0de90f5f31fc6fc83e97adc83267d/tenor.gif?itemid=4488258" alt="">
-    <img src="https://www.gamedevmarket.net/file/478ba0a78e9388eff11cc7f599dbad16.gif" alt="">
-    <img src="https://media.giphy.com/media/3o7TKnrXco2SC0XM1q/giphy.gif" alt="">
-    <img src="https://media0.giphy.com/media/gFjbkip9OIIuI/giphy.gif" alt="">
-    <img src="https://media1.tenor.com/images/38b0de90f5f31fc6fc83e97adc83267d/tenor.gif?itemid=4488258" alt="">
-    <img src="https://www.gamedevmarket.net/file/478ba0a78e9388eff11cc7f599dbad16.gif" alt="">
-    <img src="https://media.giphy.com/media/3o7TKnrXco2SC0XM1q/giphy.gif" alt="">
-    <img src="https://media0.giphy.com/media/gFjbkip9OIIuI/giphy.gif" alt="">
-    <img src="https://media1.tenor.com/images/38b0de90f5f31fc6fc83e97adc83267d/tenor.gif?itemid=4488258" alt="">
-    <img src="https://www.gamedevmarket.net/file/478ba0a78e9388eff11cc7f599dbad16.gif" alt="">
-    <img src="https://media.giphy.com/media/3o7TKnrXco2SC0XM1q/giphy.gif" alt="">
-    <img src="https://media0.giphy.com/media/gFjbkip9OIIuI/giphy.gif" alt="">
-    <img src="https://media1.tenor.com/images/38b0de90f5f31fc6fc83e97adc83267d/tenor.gif?itemid=4488258" alt="">
-    <img src="https://www.gamedevmarket.net/file/478ba0a78e9388eff11cc7f599dbad16.gif" alt="">
-
-  </div>
-    <div id="loselose">
-
-    <h3 id = "bankBal"></h3>
-
-      <button class="btn btn-primary" id="dealC">Deal Cards</button>
-      <button class="btn btn-primary" id="hit">Hit</button>
-      <button class="btn btn-primary" id="stay">Stay</button>
-       <button value="Refresh Page" class="btn btn-primary" id = "reset1">New Hand</button>
 
        <div class="container">
 
-      <h4><span id ="printBet"></span></h4>
-
-
     </div>
-    <div class="container" id="imgButtons">
-      <button id = "plus1"><img src="img/bet1.png" alt=""><span id ="button1">$1</span></button>
-      <button id = "plus5"><img src="img/bet2.png" alt=""><span id ="button2">$5</span></button>
-      <button id = "plus10"><img src="img/bet3.png" alt=""><span id ="button3">$10</span></button>
-      <button  id = "plus50"><img src="img/bet4.png" alt=""><span id ="button4">$50</span></button>
-      <button id = "plus100"><img src="img/bet5.png" alt=""><span id ="button5">$100</span></button>
-
-      <!-- <img src="img/bet2.png" alt="">
-      <img src="img/bet3.png" alt="">
-      <img src="img/bet4.png" alt="">
-      <img src="img/bet5.png" alt=""> -->
-    </div>
-
 
     <div class="row">
-      <div class="col-md-6">
-        <h1>Your Cards</h1>
-        <ul class = "user">
-
-        </ul>
-      </div>
-      <div class="col-md-6">
+      <div id = "printEnd" class="col-md-4"><p><span id="bet"></span></p><p><span id="bet2"></span></p></div>
+      <div class="col-md-4" id = "spaceHold">
+        <h1><span id="name"></span></h1>
+        <br>
         <h1>Dealer Cards</h1>
         <ul class = "deal">
-
         </ul>
+        <p><span id="dealVal"></span></p>
       </div>
-
+      <div id = "printEnd" class="col-md-4">  <p><span id="bank"></span></p></div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4" id = "spaceHold">
+        <h1>Your Cards</h1>
+        <ul class = "user">
+        </ul>
+        <p><span id="userVal"></span></p>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4" id = "btnSpace">
+        <button class="btn btn-primary" id="dealC">Deal Cards</button>
+        <button class="btn btn-primary" id="hit">Hit</button>
+        <button class="btn btn-primary" id="stay">Stay</button>
+        <button class="btn btn-primary" id="dblDown">Double Down</button>
+         <button value="Refresh Page" class="btn btn-primary" id = "reset1">New Hand</button></div>
+      <div class="col-md-4"></div>
     </div>
 
-    <div class="container">
-      <h2><span id="name"></span></h2>
-      <p><span id="bet"></span></p>
-      <p><span id="bank"></span></p>
-    </div>
+    <div class="container" >
 
+
+
+    </div>
+<div id = "spaceBet">
+  <div class="container" id="imgButtons">
+
+    <img src="Slotimg/char2.png" alt="">
+    <button id = "plus1"><img src="Slotimg/bet1.png" alt=""><span id ="button1">$1</span></button>
+    <button id = "plus5"><img src="Slotimg/bet2.png" alt=""><span id ="button2">$5</span></button>
+    <button id = "plus10"><img src="Slotimg/bet3.png" alt=""><span id ="button3">$10</span></button>
+    <button  id = "plus50"><img src="Slotimg/bet4.png" alt=""><span id ="button4">$50</span></button>
+    <button id = "plus100"><img src="Slotimg/bet5.png" alt=""><span id ="button5">$100</span></button>
+    <img src="Slotimg/char2.png" alt="">
+    <!-- <img src="img/bet2.png" alt="">
+    <img src="img/bet3.png" alt="">
+    <img src="img/bet4.png" alt="">
+    <img src="img/bet5.png" alt=""> -->
   </div>
-
+</div>
   </body>
 </html>

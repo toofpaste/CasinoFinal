@@ -1,79 +1,86 @@
 <!-- This section sets up our html code, links to stylesheets and scripts.
 Editing this section is generally not recommended. -->
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <link href="bootstrap.css" rel="stylesheet" type="text/css">
-  <link href="hotandcoldcss.css" rel="stylesheet" type="text/css">
-  <script src="jquery-3.3.1.js"></script>
-  <script src="scripts.js"></script>
-  <link rel="stylesheet" href="hotandcoldcss.css">
-  <title>Site Title</title>
-</head>
-  <body>
+  <head>
+    <meta charset="utf-8">
+    <link href="bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="hotandcold.css" rel="stylesheet" type="text/css">
+    <script src="jquery-3.3.1.js"></script>
+    <script src="hotandcold.js"></script>
+    <link rel="stylesheet" href="hotandcold.css">
+    <title>Site Title</title>
+  </head>
+    
+  
+<body>
 
-      <% include ./partials/header %>
 
-    <!-- This section is the header of the site. ---------------------------------------------------------------->
+    <% include ./partials/header %>
 
-    <div class="container">
+<!-- This section is the level selection area -->
+  <div class="container">
+    <div id="selectLevel">
       <div class="jumbotron">
-        <h1>Hot and Cold</h1>
-        <p>A Simple Game From Your Childhood</p>
+        <h1>Can you guess the number?</h1><br>
       </div>
-
-      <!-- This section is the diffulty level setting ----------------------------------------------------------->
-
-      <form id="userInput">
-        <!-- <div class="radio">
-          <h5>Choose difficulty level</h5>
-          <label>
-            <input type="radio" name="level" value="easy">Piece of Cake
-          </label>
-          <br>
-          <label>
-            <input type="radio" name="level" value="medium">Harder
-          </label>
-          <br>
-          <label>
-            <input type="radio" name="level" value="hard">Nightmare
-          </label>
-        </div> -->
-
-        <!-- This section is the user's range input ------------------------------------------------------------->
-
-        <div class="form-group">
-          <!-- <label for="user-input">Enter an upper range number:</label>
-          <input id="rangeNumber" type="number" class="form-control" name="user-input"> -->
-
-          <!-- This section is the user's Guess Number input ----------------------------------------------------->
-
-          <label for="user-input">Guess the number:</label>
-          <input id="guessedNumber" type="number" class="form-control" name="user-input" required/>
+      <div class="row">
+        <div class="col-md-4">
+          <img class="card-img-top" src="hotandcoldimg/easy.png" alt="easy">
+          <div class="card-body">
+            <h5 class="card-title">Easy</h5>
+            <em>Computer sets range from 0 to 100</em><br>
+            <br>
+            <button type="button" class="btn btn-dark" id="easy">Play!</button>
+          </div>
         </div>
-        <div class="form-group">
+        <div class="col-md-4">
+          <img class="card-img-top" src="hotandcoldimg/medium.png" alt="medium">
+          <div class="card-body">
+            <h5 class="card-title">Medium</h5>
+            <em>Computer sets range from 0 to 1000</em><br>
+            <br>
+            <button type="button" class="btn btn-dark" id="medium">Play!</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img class="card-img-top" src="hotandcoldimg/hard.png" alt="hard">
+          <div class="card-body">
+            <h5 class="card-title">Hard</h5>
+            <em>Computer sets range from 0 to 10000</em><br>
+            <br>
+            <button type="button" class="btn btn-dark" id="hard">Play!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- This section is where the user tries to guess the number -->
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+      <form id="compareNumbers">
+        <div id="guessedNumberArea">
+          <h3>Guess the number:</h3>
+          <input id="guessedNumber" type="number" class="form-control" name="user-input" required/>
+          <br>
           <button type="submit" class="btn btn-dark">Guess!</button>
           <button value="Refresh Page" class="btn btn-dark" onClick="window.location.reload()">New Game</button>
         </div>
       </form>
-
-      <!-- This section is the program's output ----------------------------------------------------------------->
-
-      <div class="jumbotron" id="output">
+    </div>
+    <div class="col-md-4">
+    </div>
+<!-- This section is the program output "It's higher / It's lower" -->
+    <div class="col-md-4">
+      <div id="computerOutputArea">
         <h3 id="underOverOutput"></h3>
         <h5 id="hotColdOutput"></h5>
+        <br>
         <h5 id="attemptOutput"></h5>
       </div>
-      <!-- <div id="output">
-        <h3><span id="underOverOutput"></span></h3>
-        <h5><span id="hotColdOutput"</h5>
-      </div> -->
-
-      <!-- As with the very first section,
-      this section should generally not be edited. -------------------------------------------------------------->
-
     </div>
-  </body>
+  </div>
+<!-- As with the very first section, this section should generally not be edited. -->
+</body>
 </html>
