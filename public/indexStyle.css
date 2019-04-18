@@ -1,0 +1,20 @@
+.container {
+  color: white;
+}
+
+body {
+  background-image: url(https://cdn-images-1.medium.com/max/2600/1*kfhrsoZiqQRUwpqSdavtOA.gif);
+  background-blend-mode: multiply;
+  background-color: #a5a4a4;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.row {
+  color: white;
+
+}
+.card-body{
+    background-color: black;
+}

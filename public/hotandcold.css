@@ -8,16 +8,6 @@
   padding: 50px;
 }
 
-#guessedNumberArea {
-  /* margin-left: 100px;
-  margin-right: 425px; */
-}
-
-#computerOutputArea {
-  margin-right: 100px;
-  margin-left: 150px;
-}
-
 .card-body {
   display: block;
   text-align: center;
@@ -29,6 +19,8 @@
 
 .success {
   background-image: url("https://i.imgur.com/9VaUjkj.jpg");
+  background-blend-mode: multiply;
+  background-color: #a5a4a4;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -36,6 +28,8 @@
 
 .within5 {
   background-image: url("https://i.imgur.com/bU9USjt.jpg");
+  background-blend-mode: multiply;
+  background-color: #a5a4a4;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -43,6 +37,8 @@
 
 .within10 {
   background-image: url("https://i.imgur.com/gqG0mZa.jpg");
+  background-blend-mode: multiply;
+  background-color: #a5a4a4;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -50,6 +46,8 @@
 
 .within20 {
   background-image: url("https://i.imgur.com/bW05cN5.jpg");
+  background-blend-mode: multiply;
+  background-color: #a5a4a4;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -57,6 +55,8 @@
 
 .within30 {
   background-image: url("https://i.imgur.com/tlKEL1n.jpg");
+  background-blend-mode: multiply;
+  background-color: #a5a4a4;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -64,6 +64,8 @@
 
 .within40 {
   background-image: url("https://i.imgur.com/hAZcuDu.jpg");
+  background-blend-mode: multiply;
+  background-color: #a5a4a4;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -71,6 +73,8 @@
 
 .within50 {
   background-image: url("https://i.imgur.com/jSodZ7c.jpg");
+  background-blend-mode: multiply;
+  background-color: #a5a4a4;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -78,6 +82,8 @@
 
 .within60 {
   background-image: url("https://i.imgur.com/sNRBq9L.jpg");
+  background-blend-mode: multiply;
+  background-color: #a5a4a4;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -85,6 +91,8 @@
 
 .within70 {
   background-image: url("https://i.imgur.com/nLgamkh.jpg");
+  background-blend-mode: multiply;
+  background-color: #a5a4a4;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -92,6 +100,8 @@
 
 .within80 {
   background-image: url("https://i.imgur.com/EuR16NL.jpg");
+  background-blend-mode: multiply;
+  background-color: #a5a4a4;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -99,6 +109,8 @@
 
 .within90 {
   background-image: url("https://i.imgur.com/D1tX9vj.jpg");
+  background-blend-mode: multiply;
+  background-color: #a5a4a4;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -106,6 +118,8 @@
 
 .tooFar {
   background-image: url("https://i.imgur.com/iWDAFFr.jpg");
+  background-blend-mode: multiply;
+  background-color: #a5a4a4;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;

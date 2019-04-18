@@ -5,7 +5,8 @@
     <link href="bootstrap.css" rel="stylesheet" type="text/css">
     <script src="jquery-3.3.1.js"></script>
     <link rel="stylesheet" href="styles.css" type="text/css">
-    <script src="scripts.js"></script>
+    <script src="indexScripts.js"></script>
+    <link rel="stylesheet" href="indexStyle.css">
     <meta charset="utf-8">
     <title>Casino</title>
 </head>
@@ -28,11 +29,63 @@
     </div>
 
     <% if(!currentUser){ %>
-    <h1>Welcome to the landing page! </h1>
+    <h1>Welcome to our Casino! </h1>
     <% } else { %>
-    <h1>Welcome to the landing page! <%= currentUser.username %></h1>
-    
+    <h1>Welcome to our Casino! <%= currentUser.username %></h1>
+
     <% } %>
+
+
+    <div id = "spaceAbove">
+
+    </div>
+    <div class="row">
+          <div class="col-md-4">
+            <div id="portland">
+              <div class="card">
+              <img class="card-img-top" src="img/slots.png" alt="picture of Portland">
+                <div class="card-body">
+                  <h5 class="card-title">Slots</h5>
+                <button type="button" class="btn btn-dark"><a href="/slots">Learn More</a></button>
+                </div>
+                <ul id="portlandHidden">
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div id="kyoto">
+              <div class="card">
+              <img class="card-img-top" src="img/hotcold.png" alt="picture of Kyoto">
+                <div class="card-body">
+                  <h5 class="card-title">Hot And Cold</h5>
+                  <button type="button" class="btn btn-dark"><a href="/hotandcold">Learn More</a></button>
+                </div>
+                <ul id="kyotoHidden">
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div id="bordeaux">
+              <div class="card">
+              <img class="card-img-top" src="img/bj21.png" alt="picture of Bordeaux">
+                <div class="card-body">
+                  <h5 class="card-title">Black Jack</h5>
+                  <button type="button" class="btn btn-dark"><a href="/blackjack">Learn More</a></button>
+                </div>
+                <ul id="bordeauxHidden">
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
 
 </body>
 

@@ -122,14 +122,15 @@ $(document).ready(function() {
       $("#selectLevel").hide();
       $("#compareNumbers").show();
       secretNumber = Math.floor(Math.random() * 100);
-      console.log("easySecretNumber", secretNumber);
+      // console.log("easySecretNumber", secretNumber);
     });
     $("#medium").click(function() {
       $("#compareNumbers").removeClass();
       $("#selectLevel").hide();
       $("#compareNumbers").show();
-      secretNumber = Math.floor(Math.random() * 1000);
-      console.log("mediumSecretNumber", secretNumber);
+      secretNumber = 500;
+      // secretNumber = Math.floor(Math.random() * 1000);
+      // console.log("mediumSecretNumber", secretNumber);
     });
     $("#hard").click(function() {
       $("#compareNumbers").removeClass();
