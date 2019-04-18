@@ -54,17 +54,17 @@ function bet(){
 }
 
 function print(i){
-  $("ul#list0").html("<li><img src = 'Slotimg/"+ (i) + ".png' alt = ''></li>");
+  $("ul#list0").html("<li><img src = 'slotimg/"+ (i) + ".png' alt = ''></li>");
   $("ul#list0").fadeIn(150);
   $("ul#list0").fadeOut(150);
 }
 function printA(i){
-  $("ul#alist0").html("<li><img src = 'Slotimg/"+ (i) + ".png' alt = ''></li>");
+  $("ul#alist0").html("<li><img src = 'slotimg/"+ (i) + ".png' alt = ''></li>");
   $("ul#alist0").fadeIn(150);
   $("ul#alist0").fadeOut(150);
 }
 function printB(i){
-  $("ul#blist0").html("<li><img src = 'Slotimg/"+ (i) + ".png' alt = ''></li>");
+  $("ul#blist0").html("<li><img src = 'slotimg/"+ (i) + ".png' alt = ''></li>");
   $("ul#blist0").fadeIn(150);
   $("ul#blist0").fadeOut(150);
 }
@@ -107,19 +107,19 @@ function spin(){
 
 function freeze(){
   var col1 = Math.floor(Math.random() * 4) + 1;
-  $("ul#list0").html("<li><img  src = 'Slotimg/"+ (col1) + ".png' alt = ''></li>");
+  $("ul#list0").html("<li><img  src = 'slotimg/"+ (col1) + ".png' alt = ''></li>");
   $("ul#list0").fadeIn(500);
   return col1;
 };
 function freezeA(){
   var col2 = Math.floor(Math.random() * 4) + 1;
-  $("ul#alist0").html("<li><img src = 'Slotimg/"+ (col2) + ".png' alt = ''></li>");
+  $("ul#alist0").html("<li><img src = 'slotimg/"+ (col2) + ".png' alt = ''></li>");
   $("ul#alist0").fadeIn(500);
   return col2;
 };
 function freezeB(){
   var col3 = Math.floor(Math.random() * 4) + 1;
-  $("ul#blist0").html("<li><img src = 'Slotimg/"+ (col3) + ".png' alt = ''></li>");
+  $("ul#blist0").html("<li><img src = 'slotimg/"+ (col3) + ".png' alt = ''></li>");
   $("ul#blist0").fadeIn(500);
   return col3;
 };

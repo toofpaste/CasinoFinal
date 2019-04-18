@@ -25,7 +25,7 @@ mongoose.connect("mongodb://admin:Hellsing1@ds143156.mlab.com:43156/casino", {
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', function(){
-    console.log("were connected");
+    console.log("we're connected");
 })
 
 // app.use(expressLayouts);
@@ -70,5 +70,5 @@ app.use(userRoutes);
 
 //SERVER
 app.listen(process.env.PORT || 5000, function () {
-    console.log("Yelp Camp server has Started");
+    console.log("Casino server has Started");
 })

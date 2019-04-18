@@ -122,10 +122,10 @@ h3 {
   font-size: 30px;
 }
 #spaceHold {
-  height: 300px;
+  height: auto;
 }
 #btnSpace{
-  height: 35px;
+  height: 45px;
 }
 #cardA1, #cardA2, #cardA3, #cardA4, #cardA5, #cardA6, #cardA7, #cardA9{
   float: left;
@@ -158,7 +158,7 @@ h3 {
 .logo {
   text-align: center;
   width: 65%;
-  height: 180px;
+  height: 225px;
   margin: auto;
   /* position: absolute; */
   top: 0;

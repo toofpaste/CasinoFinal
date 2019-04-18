@@ -29,13 +29,11 @@ function dealDeal(value, suit, suitName, valueName, totalDeal){
     if(dealTrack[tp] === 12 && totalDeal > 21){
       dealTrack[tp] = 1;
       totalDeal -= 10;
-      $("#dealVal").text("Value of: " + totalDeal);
     };
   };
   dl++;
   dealTrack.push(value);
   $("ul.deal").append("<li id = 'cardD" + dl + "'><img src = 'img/" + imagePath[suit] + value + ".jpg'" + " of " + suitName[suit] + "</li>");
-  $("#dealVal").text("Value of: " + totalDeal);
   $('#cardD' + dl).slideDown(500);
 };
 function addCard(rngVal){
